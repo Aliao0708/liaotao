@@ -1,0 +1,446 @@
+
+<title>我的购物车</title>
+
+<link rel="stylesheet" type="text/css" href="/static/home/css/pages-cart.css" />
+
+<script type="text/javascript" src="/static/home/js/pages/index.js"></script>
+
+<!--主内容-->
+<div class="cart py-container">
+	<!--All goods-->
+	<div class="allgoods">
+		<h4>全部商品<span>11</span></h4>
+		<div class="cart-main">
+			<div class="yui3-g cart-th">
+				<div class="yui3-u-1-4"><input type="checkbox" name="" id="" value="" /> 全部</div>
+				<div class="yui3-u-1-4">商品</div>
+				<div class="yui3-u-1-8">单价（元）</div>
+				<div class="yui3-u-1-8">数量</div>
+				<div class="yui3-u-1-8">小计（元）</div>
+				<div class="yui3-u-1-8">操作</div>
+			</div>
+			<div class="cart-item-list">
+				<div class="cart-shop">
+					<input type="checkbox" name="" id="" value="" />
+					<span class="shopname self">传智自营</span>
+				</div>
+				<div class="cart-body">
+					{foreach $list as $v}
+					<div class="cart-list">
+						<ul class="goods-list yui3-g" cart_id="{$v.id}" number="{$v.number}">
+							<li class="yui3-u-1-24">
+								<input type="checkbox" class="row_check" {if($v.is_selected == 1)}checked="checked"{/if} name="" id="" value="" />
+							</li>
+							<li class="yui3-u-6-24">
+								<div class="good-item">
+									<div class="item-img"><img src="{$v.goods.goods_logo}" /></div>
+									<div class="item-msg">{$v.goods.goods_name}</div>
+								</div>
+							</li>
+							<li class="yui3-u-5-24">
+								<div class="item-txt">{$v.goods.value_names}</div>
+							</li>
+							<li class="yui3-u-1-8"><span class="price">{$v.goods.goods_price}</span></li>
+							<li class="yui3-u-1-8">
+								<a href="javascript:void(0)" class="increment mins">-</a>
+								<input autocomplete="off" type="text" value="{$v.number}" minnum="1" class="itxt current_number" />
+								<a href="javascript:void(0)" class="increment plus">+</a>
+							</li>
+							<li class="yui3-u-1-8"><span class="sum">{$v.number * $v.goods.goods_price}</span></li>
+							<li class="yui3-u-1-8">
+								<a href="javascript:;" class="delete">删除</a><br />
+								<a href="#none">移到我的关注</a>
+							</li>
+						</ul>
+					</div>
+					{/foreach}
+				</div>
+			</div>
+		</div>
+		<div class="cart-tool">
+			<div class="select-all">
+				<input type="checkbox" class="check_all" name="" value="" />
+				<span>全选</span>
+			</div>
+			<div class="option">
+				<a href="#none">删除选中的商品</a>
+				<a href="#none">移到我的关注</a>
+				<a href="#none">清除下柜商品</a>
+			</div>
+			<div class="money-box">
+				<div class="chosed">已选择<span id="total_number">0</span>件商品</div>
+				<div class="sumprice">
+					<span><em>总价（不含运费） ：</em><i id="total_price" class="summoney">¥0</i></span>
+					<span><em>已节省：</em><i>-¥0</i></span>
+				</div>
+				<div class="sumbtn">
+					<a class="sum-btn" href="javascript:;">结算</a>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="deled">
+			<span>已删除商品，您可以重新购买或加关注：</span>
+			<div class="cart-list del">
+				<ul class="goods-list yui3-g">
+					<li class="yui3-u-1-2">
+						<div class="good-item">
+							<div class="item-msg">Apple Macbook Air 13.3英寸笔记本电脑 银色（Corei5）处理器/8GB内存</div>
+						</div>
+					</li>
+					<li class="yui3-u-1-6"><span class="price">8848.00</span></li>
+					<li class="yui3-u-1-6">
+						<span class="number">1</span>
+					</li>
+					<li class="yui3-u-1-8">
+						<a href="#none">重新购买</a>
+						<a href="#none">移到我的关注</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="liked">
+			<ul class="sui-nav nav-tabs">
+				<li class="active">
+					<a href="#index" data-toggle="tab">猜你喜欢</a>
+				</li>
+				<li>
+					<a href="#profile" data-toggle="tab">特惠换购</a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+			<div class="tab-content">
+				<div id="index" class="tab-pane active">
+					<div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
+						<div class="carousel-inner">
+							<div class="active item">
+								<ul>
+									<li>
+										<img src="/static/home/img/like1.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+									<li>
+										<img src="/static/home/img/like2.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+									<li>
+										<img src="/static/home/img/like3.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+									<li>
+										<img src="/static/home/img/like4.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="item">
+								<ul>
+									<li>
+										<img src="/static/home/img/like1.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+									<li>
+										<img src="/static/home/img/like2.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+									<li>
+										<img src="/static/home/img/like3.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+									<li>
+										<img src="/static/home/img/like4.png" />
+										<div class="intro">
+											<i>Apple苹果iPhone 6s (A1699)</i>
+										</div>
+										<div class="money">
+											<span>$29.00</span>
+										</div>
+										<div class="incar">
+											<a href="#" class="sui-btn btn-bordered btn-xlarge btn-default"><i class="car"></i><span class="cartxt">加入购物车</span></a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<a href="#myCarousel" data-slide="prev" class="carousel-control left">‹</a>
+						<a href="#myCarousel" data-slide="next" class="carousel-control right">›</a>
+					</div>
+				</div>
+				<div id="profile" class="tab-pane">
+					<p>特惠选购</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//计算已选商品数量和金额
+		var change_total = function(){
+			//获取到选中的行checkbox 遍历，获取对应行的数量和小计金额，进行累加
+			var total_number = 0;
+			var total_price = 0;
+			$('.row_check:checked').each(function(i,v){
+				//v是一个checkbox标签
+				//累加每一行的数量
+				total_number += parseInt( $(v).closest('ul').find('.current_number').val() );
+				//累加每一行的小计金额
+				total_price += parseFloat( $(v).closest('ul').find('.sum').html() );
+			});
+			//将计算好的数量和金额，显示到页面
+			$('#total_number').html(total_number);
+			$('#total_price').html('¥' + total_price);
+		};
+		//计算已选商品数量和金额
+		change_total();
+
+		//控制全选的选中状态
+		function check_all(){
+			var total = $('.row_check').length;
+			var checked = $('.row_check:checked').length;
+			//console.log(total, checked);
+			var status = total == checked;
+			$('.check_all').prop('checked', status);
+			//相当于以下if else判断
+			/*if(total == checked){
+             $('.check_all').prop('checked', true);
+             }else{
+             $('.check_all').prop('checked', false);
+             }*/
+		}
+		//控制全选的选中状态
+		check_all();
+
+		//修改购买数量
+		var change_num = function(number, element){
+			var data = {
+				"id":$(element).closest('ul').attr('cart_id'),
+				"number":number
+			};
+			//发送ajax请求
+			$.ajax({
+				"url":"{:url('home/cart/changenum')}",
+				"type":"post",
+				"data":data,
+				"dataType":"json",
+				"success":function(res){
+					if(res.code != 200){
+						alert(res.msg);return;
+					}
+					//修改成功后的处理
+					//显示到当前行的input
+					$(element).closest('ul').find('.current_number').val(number);
+					//计算当前行的小计金额
+					var price = parseFloat( $(element).closest('ul').find('.price').html() );
+					var sum = price * number;
+					$(element).closest('ul').find('.sum').html(sum);
+					//修改ul标签上的number
+					$(element).closest('ul').attr('number', number);
+					//计算已选的数量和金额
+					change_total();
+				}
+			});
+
+		};
+		//修改选中状态
+		/*var change_status = function(id, status){
+            var data = {
+                "id":id,
+                "status":status
+            };
+            $.ajax({
+                "url":"{:url('home/cart/changestatus')}",
+                "type":"post",
+                "data":data,
+                "dataType":"json",
+                "success":function(res){
+                    if(res.code != 200){
+                        alert(res.msg);return;
+                    }
+                }
+            });
+        };*/
+		var change_status = function(element){
+			var data = {
+				"id":$(element).hasClass('check_all') ? 'all' : $(element).closest('ul').attr('cart_id'),
+				"status":$(element).prop('checked') ? 1 : 0
+			};
+			$.ajax({
+				"url":"{:url('home/cart/changestatus')}",
+				"type":"post",
+				"data":data,
+				"dataType":"json",
+				"success":function(res){
+					if(res.code != 200){
+						alert(res.msg);return;
+					}
+				}
+			});
+		};
+		//全选效果
+		$('.check_all').change(function(){
+			//获取全选的选中状态  checked属性值
+			var status = $('.check_all').prop('checked');
+			//console.log(status);
+			//设置每一行的checkbox 和全选状态一致
+			$('.row_check').prop('checked', status);
+			//修改选中状态
+			/*var id = 'all';
+            var status = $(this).prop('checked') ? 1 : 0;
+            change_status(id, status);*/
+			change_status(this);
+			//计算已选商品数量和金额
+			change_total();
+		});
+
+		//每一行checkbox的效果
+		$('.row_check').change(function(){
+			//控制全选的选中状态
+			check_all();
+			//修改选中状态
+			/*var id = $(this).closest('ul').attr('cart_id');
+            var status = $(this).prop('checked') ? 1 : 0;
+            change_status(id, status);*/
+			change_status(this);
+			//计算选中数量和金额
+			change_total();
+		});
+
+		//+号修改数量
+		$('.plus').click(function(){
+			//取到当前行input的数量
+			//var number = $(this).prev().val();
+			var number = parseInt($(this).closest('ul').find('.current_number').val());
+			//计算新的数量 +1
+			number++;
+			//number += 1;
+			//发送ajax请求修改数量
+			change_num(number, this);
+		});
+
+		//-号修改数量
+		$('.mins').click(function(){
+			//取到当前行input的数量
+			//var number = $(this).next().val();
+			var number = parseInt($(this).closest('ul').find('.current_number').val());
+			if(number == 1) return;
+			//计算新的数量 -1
+			number--;
+			//发送ajax请求修改数量
+			change_num(number, this);
+		});
+
+		//input直接修改数量
+		$('.current_number').change(function(){
+			//获取到修改数量
+			var number = $(this).val();
+			//检测数量格式 略
+			if(!/^\d+$/.test(number) || number == 0){
+				alert('购买数量必须是正整数');
+				//获取之前的数量
+				var old_number = $(this).closest('ul').attr('number');
+				$(this).val(old_number);
+				return;
+			}
+			/*if(isNaN(number) || parseInt(number)!=number || number <= 0){
+                alert('购买数量必须是正整数');return;
+            }*/
+			//发送ajax请求修改数量
+			change_num(number, this);
+		});
+
+		//删除购物记录
+		$('.delete').click(function(){
+			var data = {
+				'id':$(this).closest('ul').attr('cart_id')
+			};
+			var that = this;
+			//发送ajax
+			$.ajax({
+				"url": "{:url('home/cart/delcart')}",
+				"type": "post",
+				"data": data,
+				"dataType": "json",
+				"success": function (res) {
+					if (res.code != 200) {
+						alert(res.msg);
+						return;
+					}
+					//移除当前行记录
+					$(that).closest('.cart-list').remove();
+					//$(that).closest('ul').parent().remove();
+					//计算选中数量和金额
+					change_total();
+				}
+			});
+
+		});
+
+		//结算
+		$('.sum-btn').click(function(){
+			//判断是否有选中的记录
+			if($('.row_check:checked').length == 0){
+				alert('至少选中一条购物记录');return;
+			}
+			//跳转到结算页面
+			location.href = "{:url('home/order/create')}";
+		});
+	})
+</script>

@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"101774759","appkey":"7925b19272411fa2a21e138f860601c7","callback":"http://www.pyg.com/home/login/qqcallback","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}
